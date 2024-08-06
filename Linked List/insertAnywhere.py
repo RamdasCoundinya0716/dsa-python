@@ -13,8 +13,9 @@ def insertNodeAnywhere(head, key, position):
         '''
         Here we are using position - 2 because:
         1) The index of linked lists starts from 1.
-        2) Logic : We need to stop at 2 nodes before the place where we need to insert and modify the next pointer.
-        For eg., If you want to insert at position 3, you need to:
+        2) Logic : To insert a new node at position n, you need to traverse to the node currently at position n-1 
+            because you need to modify the next pointer of this node to point to the new node.
+        3) For eg., If you want to insert at position 3, you need to:
             i) Traverse to position 2 (one node before the target position 3).
             ii) Adjust the next pointer of the node at position 2 to point to the new node.
             iii) Set the next pointer of the new node to point to the node that was originally at position 3.
