@@ -1,19 +1,11 @@
 from linkedList import Node
 from printLinkedList import printList
+# For this deletetion, only the pointer or the link will be given as an input
 
-def deleteNodeFromTheEnd(head):
-    if head is None:
-        return None
-    if head.next is None:
-        return None  # If there's only one node, return None as the list will be empty after deletion
-    
-    current = head
-    while current.next.next: 
-        current = current.next # Traverse till the second last node
-
-    # Now current is the second last node
-    current.next = None
-    return head
+def deleteTheGivenNode(pointer):
+    temp = pointer.next 
+    pointer.data = temp.data
+    pointer.next = temp.next
 
 
 def main():
@@ -35,7 +27,7 @@ def main():
     node6.next = node7
     node7.next = node8
 
-    node1 = deleteNodeFromTheEnd(node1)
+    deleteTheGivenNode(node1.next)
     printList(node1)
 
 if __name__ == '__main__':
