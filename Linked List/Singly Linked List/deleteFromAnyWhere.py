@@ -3,9 +3,13 @@ from printLinkedList import printList
 # For this deletetion, only the pointer or the link will be given as an input
 
 def deleteTheGivenNode(pointer):
-    temp = pointer.next 
-    pointer.data = temp.data
-    pointer.next = temp.next
+    if pointer.next is None:
+        # This means the pointer is at the last node, which cannot be deleted in this way
+        raise Exception("Cannot delete the last node with this method")
+    else:
+        temp = pointer.next
+        pointer.data = temp.data
+        pointer.next = temp.next
 
 
 def main():
@@ -27,7 +31,7 @@ def main():
     node6.next = node7
     node7.next = node8
 
-    deleteTheGivenNode(node1.next)
+    deleteTheGivenNode(node6.next)
     printList(node1)
 
 if __name__ == '__main__':
